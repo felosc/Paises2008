@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::controller(PaisController::class)->group(function(){
+    Route::get('paises', 'index')->name('verpaises');
+});
+
+require __DIR__.'/auth.php';
