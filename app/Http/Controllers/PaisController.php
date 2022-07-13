@@ -15,7 +15,6 @@ class PaisController extends Controller
     public function index()
     {
        $mostrarpaises = Pais::all();
-
        return view( 'Paises.index',compact('mostrarpaises'));
     }
 
@@ -47,8 +46,9 @@ class PaisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Pais $pais)
-    {
-        //
+    {   
+        $verpais = Pais::find($pais);
+        dd($verpais);
     }
 
     /**

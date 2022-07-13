@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 
 Route::controller(PaisController::class)->group(function(){
     Route::get('paises', 'index')->name('verpaises');
+    Route::get('pais/{pais}', 'show')->name('verpais');
 });
 
 require __DIR__.'/auth.php';
