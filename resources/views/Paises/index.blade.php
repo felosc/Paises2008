@@ -1,6 +1,4 @@
-<x-guest-layout>
-
-    
+<x-guest-layout>    
     <table class="border-collapse border border-slate-500 ... ">
         <thead>
             <tr>
@@ -18,7 +16,7 @@
                 <td class="bg-red-200 border border-slate-700 ... text-center">{{$pais->PaisCodigo}}</td>
                 <td class="bg-yellow-200 border border-slate-700 ... text-center">{{$pais->PaisPoblacion}}</td>
                 <td class="bg-indigo-200 border border-slate-700 ... text-center">{{$pais->PaisRegion}}</td>                
-                  <td class="bg-indigo-200 border border-slate-700 ... text-center">ver</td>
+                  <td class="bg-indigo-200 border border-slate-700 ... text-center"><a href="{{route('verpais', $pais->id)}}">ver</a></td>
                         <td class="bg-indigo-200 border border-slate-700 ... text-center">Editar</td>
                         <td class="bg-indigo-200 border border-slate-700 ... text-center">Borrar</td>                
             </tr>
