@@ -48,7 +48,8 @@ class PaisController extends Controller
     public function show(Pais $pais)
     {   
         $verpais = Pais::find($pais);
-        dd($verpais);
+        
+        return view( 'Paises.show',compact('verpais'));
     }
 
     /**
