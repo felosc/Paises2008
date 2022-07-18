@@ -1,4 +1,5 @@
-<x-guest-layout>    
+<x-guest-layout>
+    <div class="flex items-center justify-center h-screen text-center ">     
     <table class="border-collapse border border-slate-500 ... ">
         <thead>
             <tr>
@@ -23,4 +24,5 @@
             @endforeach
     </tbody>
   </table>
+  </div>
 </x-guest-layout>
