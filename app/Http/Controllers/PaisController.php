@@ -46,8 +46,8 @@ class PaisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Pais $pais)
-    {   
-        $verpais = Pais::find($pais);
+    {  
+        $verpais = Pais::find($pais->id);
         
         return view( 'Paises.show',compact('verpais'));
     }
