@@ -1,3 +1,4 @@
+@extends(layouts.navigation)
 <x-guest-layout> 
      
     <div class="flex items-center justify-center h-screen text-center">
@@ -14,7 +15,7 @@
             </div>
             <div class="bg-violet-400">
                 <label for="">CAPITAL DEL PAIS</label>                
-                <p>{{$verpais->PaisCapital}}</p>
+                <p>{{$verpais->ObtenerCiudades->CiudadNombre}}</p>
             </div> 
             <div class="bg-violet-400">
                 <label for="">ID DEL PAIS</label>                

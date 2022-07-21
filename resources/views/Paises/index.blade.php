@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="flex items-center justify-center h-screen text-center ">     
+    <div class="flex items-center justify-center">     
     <table class="border-collapse border border-slate-500 ... ">
         <thead>
             <tr>
@@ -17,7 +17,11 @@
                 <td class="bg-red-200 border border-slate-700 ... text-center">{{$pais->PaisCodigo}}</td>
                 <td class="bg-yellow-200 border border-slate-700 ... text-center">{{$pais->PaisPoblacion}}</td>
                 <td class="bg-indigo-200 border border-slate-700 ... text-center">{{$pais->PaisRegion}}</td>                
-                  <td class="bg-indigo-200 border border-slate-700 ... text-center"><a href="{{route('verpais', $pais->id)}}">ver</a></td>
+                  <td class="bg-indigo-200 border border-slate-700 ... text-center">
+                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                        <a href="{{route('verpais', $pais->id)}}">ver</a>
+                      </button>
+                </td>
                         <td class="bg-indigo-200 border border-slate-700 ... text-center">Editar</td>
                         <td class="bg-indigo-200 border border-slate-700 ... text-center">Borrar</td>                
             </tr>
