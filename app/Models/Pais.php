@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Pais extends Model
 {
     use HasFactory;
+    
 
     public function ObtenerCiudades()
     {
-        return $this->belongsTo(Ciudad::class,'CiudadID','PaisCapital');
+        return $this->hasMany(Ciudad::class,'CiudadID','PaisCapital');
     }
 }
