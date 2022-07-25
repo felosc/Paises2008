@@ -47,9 +47,23 @@ class PaisController extends Controller
      */
     public function show(Pais $pais)
     {  
-        $verpais = Pais::find($pais->id);
-        dd($verpais);
-        return view( 'Paises.show',compact('verpais'));
+        if ($pais->PaisCapital!=null) {
+
+            $Verpais =Pais::join("Ciudad","Pais.PaisCapital","=","Ciudad.id")
+            ->where('Pais.id','=',$pais->id)
+            ->get();
+            //dd($Verpais[0]);
+            return view( 'Paises.show',compact('Verpais'));
+
+        }else {
+            $consultaPais =Pais::find($pais->id);
+            $Verpais = [$consultaPais];
+            //dd($Verpais);
+            return view( 'Paises.show',compact('Verpais'));
+
+        }
+
+
     }
 
     /**

@@ -13,6 +13,8 @@ class Pais extends Model
 
     public function ObtenerCiudades()
     {
-        return $this->hasMany(Ciudad::class,'CiudadID','PaisCapital');
+        //$Paises =Pais::join("Ciudad","Pais.PaisCapital","=","Ciudad.id")
+        //->get();
+       // return $Paises;
     }
 }
