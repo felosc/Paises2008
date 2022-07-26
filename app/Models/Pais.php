@@ -11,10 +11,4 @@ class Pais extends Model
     use HasFactory;
     
 
-    public function ObtenerCiudades()
-    {
-        //$Paises =Pais::join("Ciudad","Pais.PaisCapital","=","Ciudad.id")
-        //->get();
-       // return $Paises;
-    }
 }
