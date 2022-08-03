@@ -74,7 +74,7 @@ class PaisController extends Controller
      */
     public function edit(Pais $pais)
     {
-        //
+        return view('Paises.edit');
     }
 
     /**
