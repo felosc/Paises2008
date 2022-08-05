@@ -25,7 +25,7 @@ class PaisController extends Controller
      */
     public function create()
     {
-        //
+        return view('Paises.create');
     }
 
     /**
