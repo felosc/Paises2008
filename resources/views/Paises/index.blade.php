@@ -33,7 +33,7 @@
                   </td>
                           <td class="bg-indigo-200 border border-slate-700 ... text-center">
                             
-                            <a href="{{route('editarpais')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
+                            <a href="{{route('editarpais', $pais->id)}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
                           </td>
                           <td class="bg-indigo-200 border border-slate-700 ... text-center">Borrar</td>                
               </tr>
