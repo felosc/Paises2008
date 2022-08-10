@@ -8,8 +8,9 @@
 </head>
 <body>
 
-    <form action="">
+    <form method="post" action="{{ route('actualizarpais',$editPais->id) }}">
         @csrf
+        @method('PUT')
         <div>
             <label for="">Nombre del pais</label>
             <input value="{{$editPais->PaisNombre }}" type="text">
@@ -70,6 +71,16 @@
             <label for="">Jefe de estado del pais</label>
             <input value="{{$editPais->PaisJefeDeEstado }}" type="text">
         </div>
+
+        <div>
+            <div>
+                <button type="submit" class="btn btn-blue">
+                     Actualizar datos
+                </button>
+            </div>
+        </div>
+
+
     </form>
     
 </body>

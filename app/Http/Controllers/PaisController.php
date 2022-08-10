@@ -87,7 +87,8 @@ class PaisController extends Controller
      */
     public function update(Request $request, Pais $pais)
     {
-        //
+        dd($request,$pais);
+        return view('Paises.edit');
     }
 
     /**

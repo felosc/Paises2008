@@ -27,6 +27,7 @@ Route::controller(PaisController::class)->group(function(){
     Route::get('crearpais', 'create')->name('crearpais');
     Route::get('pais/{pais}', 'show')->name('verpais');
     Route::get('editpais/{pais}', 'edit')->name('editarpais');
+    Route::put('actualizarpais/{pais}','update')->name('actualizarpais');
 });
 
 require __DIR__.'/auth.php';
