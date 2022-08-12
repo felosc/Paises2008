@@ -8,68 +8,68 @@
 </head>
 <body>
 
-    <form method="post" action="{{ route('actualizarpais',$editPais->id) }}">
+    <form  action="{{ route('actualizarpais',$editPais) }}" method="post">
         @csrf
         @method('PUT')
         <div>
             <label for="">Nombre del pais</label>
-            <input value="{{$editPais->PaisNombre }}" type="text">
+            <input name="nombdrepais" value="{{$editPais->PaisNombre }}" type="text">
         </div>        
         <div>
             <label for="">  Codigo del pais </label>
-            <input value="{{$editPais->PaisCodigo }}" type="text">
+            <input name="codigopais" value="{{$editPais->PaisCodigo }}" type="text">
         </div>
         <div>
            <label for="">Capital del pais</label>
-           <Select>
+           <Select name="capitalpais">
 
-               <option value="">{{$editPais->PaisCapital }}</option>
+               <option value="{{$editPais->PaisCapital }}">{{$editPais->PaisCapital }}</option>
                <option value="">2</option>
            </Select>
         </div>
        <div>
            <label for="">Segundo Codigo del pais</label>
-           <input value="{{$editPais->PaisCodigo2 }}" type="text">
+           <input name="codigo2pais" value="{{$editPais->PaisCodigo2 }}" type="text">
        </div>
         <div>
             <label for="">Continente en el que esta el pais</label>
-            <input value="{{$editPais->PaisContinente }}" type="text">
+            <input name="continentepais" value="{{$editPais->PaisContinente }}" type="text">
         </div>
         <div>
             <label for="">Region del pais</label>
-            <input value="{{$editPais->PaisRegion }}" type="text">
+            <input name="regionpais" value="{{$editPais->PaisRegion }}" type="text">
         </div>
         <div>
             <label for="">Area del Pais</label>
-            <input value="{{$editPais->PaisArea }}"  type="text">
+            <input name="areapais" value="{{$editPais->PaisArea }}"  type="text">
         </div>
         <div>
             <label for="">Independencia del Pais</label>
-            <input value="{{$editPais->PaisIndependencia }}" type="text">
+            <input name="independenciapais" value="{{$editPais->PaisIndependencia }}" type="text">
         </div>
         <div>
             <label for="">Poblacion Del Pais</label>
-            <input value="{{$editPais->PaisPoblacion }}" type="text">
+            <input name="poblacionpais" value="{{$editPais->PaisPoblacion }}" type="text">
         </div>
         <div>
             <label for="">Expetativa de vida del pais</label>
-            <input value="{{$editPais->PaisExpectativaDeVida }}" type="text">
+            <input name="expectativadevidapais" value="{{$editPais->PaisExpectativaDeVida }}" type="text">
         </div>
         <div>
             <label for="">Producto interno bruto del pais</label>
-            <input value="{{$editPais->PaisProductoInternoBruto }}" type="text">
+            <input name="productointernobrutopais" value="{{$editPais->PaisProductoInternoBruto }}" type="text">
         </div>
         <div>
             <label for="">Nombre local del pais</label>
-            <input value="{{$editPais->PaisNombreLocal }}" type="text">
+            <input name="nombrelocalpais" value="{{$editPais->PaisNombreLocal }}" type="text">
         </div>
         <div>
             <label for="">Gobierno del pais</label>
-            <input value="{{$editPais->PaisGobierno }}" type="text">
+            <input name="gobiernopais" value="{{$editPais->PaisGobierno }}" type="text">
         </div>
         <div>
             <label for="">Jefe de estado del pais</label>
-            <input value="{{$editPais->PaisJefeDeEstado }}" type="text">
+            <input name="jefedeestadopais" value="{{$editPais->PaisJefeDeEstado }}" type="text">
         </div>
 
         <div>
@@ -79,8 +79,6 @@
                 </button>
             </div>
         </div>
-
-
     </form>
     
 </body>

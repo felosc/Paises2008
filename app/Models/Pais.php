@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Pais extends Model
 {
     use HasFactory;
-    
 
+    public $timestamps = false;
 }

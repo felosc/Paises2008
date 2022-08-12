@@ -86,9 +86,33 @@ class PaisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Pais $pais)
+        
+
     {
-        dd($request,$pais);
-        return view('Paises.edit');
+        
+
+        $pais->PaisNombre                  = $request->nombdrepais;
+        $pais->PaisCodigo                  = $request->codigopais;
+        $pais->PaisCapital                 = $request->capitalpais;
+        $pais->PaisCodigo2                 = $request->codigo2pais;
+        $pais->PaisContinente              = $request->continentepais;
+        $pais->PaisRegion                  = $request->regionpais;
+        $pais->PaisArea                    = $request->areapais;
+        $pais->PaisIndependencia           = $request->independenciapais;
+        $pais->PaisPoblacion               = $request->poblacionpais;
+        $pais->PaisExpectativaDeVida       = $request->expectativadevidapais;
+        $pais->PaisProductoInternoBruto    = $request->productointernobrutopais;
+        $pais->PaisNombreLocal             = $request->nombrelocalpais;
+        $pais->PaisGobierno                = $request->gobiernopais;
+        $pais->PaisJefeDeEstado            = $request->jefedeestadopais;
+
+        $pais->isDirty();
+
+        $pais->save();
+                
+        return redirect()->route('verpais',$pais);
+       
+        
     }
 
     /**
@@ -99,6 +123,8 @@ class PaisController extends Controller
      */
     public function destroy(Pais $pais)
     {
-        //
+
+        
+
     }
-}
+}                   
