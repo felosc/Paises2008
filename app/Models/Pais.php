@@ -12,3 +12,5 @@ class Pais extends Model
 
     public $timestamps = false;
 }
+
+
