@@ -15,33 +15,34 @@
             @csrf
         <div>
             <label for="">Nombre del pais</label>
-            <input type="text">
+            <input name="nombrepais" type="text">
         </div>        
         <div>
             <label for="">  Codigo del pais </label>
-            <input type="text">
+            <input name="codigopais" type="text">
         </div>
         <div>
            <label for="">Capital del pais</label>
-           <Select>
+           <Select name="capitalpais">
                <option value="">1</option>
                <option value="">2</option>
            </Select>
         </div>
        <div>
            <label for="">Segundo Codigo del pais</label>
+           <input name="codigo2pais" type="text">
        </div>
         <div>
             <label for="">Continente en el que esta el pais</label>
-            <input type="ratio">
+            <input name="continentepais" type="ratio">
         </div>
         <div>
             <label for="">Region del pais</label>
-            <input type="text">
+            <input name="regionpais" type="text">
         </div>
         <div>
             <label for="">Area del Pais</label>
-            <input type="number">
+            <input name="areapais" type="number">
         </div>
         <div >
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -52,27 +53,27 @@
 
         <div>
             <label for="">Poblacion Del Pais</label>
-            <input type="number">
+            <input name="poblacionpais" type="number">
         </div>
         <div>
             <label for="">Expetativa de vida del pais</label>
-            <input type="number">
+            <input  name="expectativadevidapais" type="number">
         </div>
         <div>
             <label for="">Producto interno bruto del pais</label>
-            <input type="number">
+            <input name="productointernobrutopais" type="number">
         </div>
         <div>
             <label for="">Nombre local del pais</label>
-            <input type="text">
+            <input name="nombrelocalpais" type="text">
         </div>
         <div>
             <label for="">Gobierno del pais</label>
-            <input type="text">
+            <input  name="gobiernopais" type="text">
         </div>
         <div>
             <label for="">Jefe de estado del pais</label>
-            <input type="text">
+            <input name="jefedeestadopais"   type="text">
         </div>
         
         
