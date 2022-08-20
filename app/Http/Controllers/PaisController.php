@@ -14,8 +14,8 @@ class PaisController extends Controller
      */
     public function index()
     {
-       $mostrarpaises = Pais::all();
-       return view( 'Paises.index',compact('mostrarpaises'));
+        $mostrarpaises = Pais::all();
+        return view('Paises.index', compact('mostrarpaises'));
     }
 
     /**
@@ -46,24 +46,20 @@ class PaisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Pais $pais)
-    {  
-        if ($pais->PaisCapital!=null) {
+    {
+        if ($pais->PaisCapital != null) {
 
-            $Verpais =Pais::join("Ciudad","Pais.PaisCapital","=","Ciudad.id")
-            ->where('Pais.id','=',$pais->id)
-            ->get();
+            $Verpais = Pais::join("Ciudad", "Pais.PaisCapital", "=", "Ciudad.id")
+                ->where('Pais.id', '=', $pais->id)
+                ->get();
             //dd($Verpais[0]);
-            return view( 'Paises.show',compact('Verpais'));
-
-        }else {
-            $consultaPais =Pais::find($pais->id);
+            return view('Paises.show', compact('Verpais'));
+        } else {
+            $consultaPais = Pais::find($pais->id);
             $Verpais = [$consultaPais];
             //dd($Verpais);
-            return view( 'Paises.show',compact('Verpais'));
-
+            return view('Paises.show', compact('Verpais'));
         }
-
-
     }
 
     /**
@@ -74,8 +70,8 @@ class PaisController extends Controller
      */
     public function edit(Pais $pais)
     {
-        $editPais=$pais;
-        return view('Paises.edit',compact('editPais'));
+        $editPais = $pais;
+        return view('Paises.edit', compact('editPais'));
     }
 
     /**
@@ -86,10 +82,10 @@ class PaisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Pais $pais)
-        
+
 
     {
-        
+
 
         $pais->PaisNombre                  = $request->nombdrepais;
         $pais->PaisCodigo                  = $request->codigopais;
@@ -109,10 +105,8 @@ class PaisController extends Controller
         $pais->isDirty();
 
         $pais->save();
-                
-        return redirect()->route('verpais',$pais);
-       
-        
+
+        return redirect()->route('verpais', $pais);
     }
 
     /**
@@ -123,8 +117,5 @@ class PaisController extends Controller
      */
     public function destroy(Pais $pais)
     {
-
-        
-
     }
-}                   
+}
