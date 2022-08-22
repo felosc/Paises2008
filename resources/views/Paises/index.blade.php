@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"> !--->
 </head>
 <body>
   
@@ -41,18 +40,11 @@
       </tbody>
     </table>
     </div>
+      <div class="flex items-center justify-center">
+        {{ $mostrarpaises->links() }}
+      </div>
+      
   </x-guest-layout>
 
 </body>
 </html>
-<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script>
-  $(document).ready(function() {
-
-    $('#tablapaises').DataTable();
-
-  });
-</script> 
-si no usas esto dentro de una semana borralo 26/07/2022
-!--->

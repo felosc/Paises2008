@@ -28,8 +28,7 @@ return new class extends Migration
             $table->string('PaisNombreLocal');
             $table->string('PaisGobierno');
             $table->string('PaisJefeDeEstado');
-            $table->unsignedBigInteger('PaisCapital');
-            $table->foreign('PaisCapital')->references('id')->on('ciudad');
+            $table->bigInteger('PaisCapital')->nullable();
             $table->char('PaisCodigo2', 3);
             $table->timestamps();
         });

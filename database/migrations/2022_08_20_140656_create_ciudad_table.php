@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ciudad', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('id')->autoIncrement();
             $table->string('CiudadNombre');
-            $table->foreign('PaisCodigo')->references('PaisCodigo')->on('Pais');
+            $table->char('PaisCodigo', 3)->nullable();
             $table->string('CiudadDistrito');
             $table->integer('CiudadPoblacion');
             $table->timestamps();

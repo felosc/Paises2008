@@ -14,7 +14,7 @@ class PaisController extends Controller
      */
     public function index()
     {
-        $mostrarpaises = Pais::all();
+        $mostrarpaises = Pais::paginate('30');
         return view('Paises.index', compact('mostrarpaises'));
     }
 
@@ -47,19 +47,11 @@ class PaisController extends Controller
      */
     public function show(Pais $pais)
     {
-        if ($pais->PaisCapital != null) {
+        //dd($pais);
 
-            $Verpais = Pais::join("Ciudad", "Pais.PaisCapital", "=", "Ciudad.id")
-                ->where('Pais.id', '=', $pais->id)
-                ->get();
-            //dd($Verpais[0]);
-            return view('Paises.show', compact('Verpais'));
-        } else {
-            $consultaPais = Pais::find($pais->id);
-            $Verpais = [$consultaPais];
-            //dd($Verpais);
-            return view('Paises.show', compact('Verpais'));
-        }
+        $verpais = $pais;
+
+        return view('Paises.show', compact('verpais'));
     }
 
     /**

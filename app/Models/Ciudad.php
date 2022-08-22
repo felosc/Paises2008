@@ -10,8 +10,10 @@ class Ciudad extends Model
 {
     use HasFactory;
 
-    
-    public function ObtenerPais(){
-        return $this->belongsTo(Pais::class,'PaisCodigo','PaisCodigo');
+    protected $table = "ciudad";
+
+    public function obtenerPais()
+    {
+        return $this->belongsTo(Pais::class, 'PaisCapital', 'id');
     }
 }

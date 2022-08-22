@@ -11,6 +11,9 @@ class Pais extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    public function ciudad()
+    {
+        return $this->hasMany(ciudad::class, 'id', 'PaisCapital');
+    }
 }
-
-

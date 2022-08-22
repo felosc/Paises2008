@@ -14,14 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('paisidioma', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->foreign('PaisCodigo')->references('PaisCodigo')->on('Pais');
+            $table->bigInteger('id')->autoIncrement();
+            $table->string('PaisCodigo', 3);
             $table->string('PaisIdioma');
             $table->char('PaisIdiomaOficial', 1);
             $table->float('PaisIdiomaPorcentaje');
             $table->timestamps();
         });
     }
+
+
 
     /**
      * Reverse the migrations.
