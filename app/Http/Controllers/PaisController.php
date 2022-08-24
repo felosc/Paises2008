@@ -109,5 +109,8 @@ class PaisController extends Controller
      */
     public function destroy(Pais $pais)
     {
+        $pais->delete();
+
+        return redirect()->route('verpaises')->with('200', 'Pais Eliminado');
     }
 }

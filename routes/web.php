@@ -22,12 +22,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::controller(PaisController::class)->group(function(){
+Route::controller(PaisController::class)->group(function () {
     Route::get('paises', 'index')->name('verpaises');
     Route::get('crearpais', 'create')->name('crearpais');
     Route::get('pais/{pais}', 'show')->name('verpais');
     Route::get('editpais/{pais}', 'edit')->name('editarpais');
-    Route::put('actualizarpais/{pais}','update')->name('actualizarpais');
+    Route::put('actualizarpais/{pais}', 'update')->name('actualizarpais');
+    Route::delete('borrarpais/{pais}', 'destroy')->name('borrarpais');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
