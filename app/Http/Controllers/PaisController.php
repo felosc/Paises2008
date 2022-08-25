@@ -36,7 +36,27 @@ class PaisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pais = Pais::create([
+            'PaisCodigo' => $request->codigopais,
+            'PaisNombre' => $request->nombrepais,
+            'PaisContinente' => $request->continentepais,
+            'PaisRegion' => $request->regionpais,
+            'PaisArea' => $request->areapais,
+            'PaisIndependencia' => $request->independenciapais,
+            'PaisPoblacion' => $request->poblacionpais,
+            'PaisExpectativaDeVida' => $request->expectativadevidapais,
+            'PaisProductoInternoBruto' => $request->productointernobrutopais,
+            'PaisProductoInternoBrutoAntiguo' => 0,
+            'PaisNombreLocal' => $request->nombrelocalpais,
+            'PaisGobierno' => $request->gobiernopais,
+            'PaisJefeDeEstado' => $request->jefedeestadopais,
+            'PaisCapital' => $request->capitalpais,
+            'PaisCodigo2' => $request->codigo2pais,
+        ]);
+
+        $pais->save();
+
+        return redirect()->route('verpaises');
     }
 
     /**
@@ -111,6 +131,6 @@ class PaisController extends Controller
     {
         $pais->delete();
 
-        return redirect()->route('verpaises')->with('200', 'Pais Eliminado');
+        return redirect()->route('verpaises');
     }
 }

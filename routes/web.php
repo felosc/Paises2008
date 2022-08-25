@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 Route::controller(PaisController::class)->group(function () {
     Route::get('paises', 'index')->name('verpaises');
     Route::get('crearpais', 'create')->name('crearpais');
+    Route::post('nuevopais', 'store')->name('nuevopais');
     Route::get('pais/{pais}', 'show')->name('verpais');
     Route::get('editpais/{pais}', 'edit')->name('editarpais');
     Route::put('actualizarpais/{pais}', 'update')->name('actualizarpais');

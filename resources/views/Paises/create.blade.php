@@ -1,17 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-</head>
-<body>
+    <x-app-layout>
+        <x-slot name="header">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Dashboard') }}
+            </h2>
+        </x-slot>
+        
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        
+                        
+                        
 
-
-<x-guest-layout>
     <div class="flex items-center justify-center">
-        <form action="">
+
+
+        @if ($errors->any())
+        <ul>
+            @foreach ($errors as $error )
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+            
+        @endif
+        
+
+        <form action="{{ route('nuevopais') }}" method="POST">
             @csrf
         <div>
             <label for="">Nombre del pais</label>
@@ -24,7 +39,7 @@
         <div>
            <label for="">Capital del pais</label>
            <Select name="capitalpais">
-               <option value="">1</option>
+               <option value="" aria-placeholder="seleciona una capaital"></option>
                <option value="">2</option>
            </Select>
         </div>
@@ -34,15 +49,15 @@
        </div>
         <div>
             <label for="">Continente en el que esta el pais</label>
-            <input name="continentepais" type="ratio">
+            <input name="continentepais" type="text">
         </div>
         <div>
             <label for="">Region del pais</label>
-            <input name="regionpais" type="text">
+            <input name="regionpais" type="text" >
         </div>
         <div>
             <label for="">Area del Pais</label>
-            <input name="areapais" type="number">
+            <input name="areapais" type="number" step="any">
         </div>
         <div >
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -57,7 +72,8 @@
             </path>
          </svg>
             </div>
-            <input datepicker datepicker-format="yyyy" 
+            <input datepicker datepicker-format="yyyy"
+            name="independenciapais" 
             type="text" 
             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
         </div>
@@ -68,11 +84,11 @@
         </div>
         <div>
             <label for="">Expetativa de vida del pais</label>
-            <input  name="expectativadevidapais" type="number">
+            <input  name="expectativadevidapais" type="number" step="any">
         </div>
         <div>
             <label for="">Producto interno bruto del pais</label>
-            <input name="productointernobrutopais" type="number">
+            <input name="productointernobrutopais" type="number" step="any">
         </div>
         <div>
             <label for="">Nombre local del pais</label>
@@ -91,15 +107,17 @@
         <div>
             <div>
                 <button type="submit" 
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                    Actualizar datos
-                </button>
-            </div>
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                CREAR PAIS
+            </button>
         </div>
-    </form>
+    </div>
+</form>
 </div>
-</x-guest-layout>    
-
 </body>
 <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
-</html>
+</div>
+</div>
+</div>
+</div>
+</x-app-layout>
