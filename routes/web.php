@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\PaisController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,7 @@ Route::controller(PaisController::class)->group(function () {
     Route::delete('borrarpais/{pais}', 'destroy')->name('borrarpais');
 });
 
-Route::controller(PaisController::class)->group(function () {
+Route::controller(CiudadController::class)->group(function () {
     Route::get('ciudades', 'index')->name('verciudades');
     Route::get('crearciudad', 'create')->name('crearciudad');
     Route::post('nuevaciudad', 'store')->name('nuevaciudad');

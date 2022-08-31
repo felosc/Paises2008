@@ -8,7 +8,7 @@
             @csrf
         <div>
             <label for="">Nombre de la ciudad</label>
-            <input name="nombrciudad" type="text">
+            <input name="nombreciudad" value="{{ $ver }}" type="text">
         </div>        
         <div>
             <label for="">  Codigo del pais </label>
@@ -20,7 +20,7 @@
         </div>
        <div>
            <label for="">Poblacions de la ciudad</label>
-           <input name="poblacionsciudad" type="number">
+           <input name="poblacionciudad" type="number">
        </div>        
         
         <div>
@@ -32,4 +32,3 @@
         </div>
     </div>
 </form>
-</div>
