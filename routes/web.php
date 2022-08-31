@@ -32,4 +32,14 @@ Route::controller(PaisController::class)->group(function () {
     Route::delete('borrarpais/{pais}', 'destroy')->name('borrarpais');
 });
 
+Route::controller(PaisController::class)->group(function () {
+    Route::get('ciudades', 'index')->name('verciudades');
+    Route::get('crearciudad', 'create')->name('crearciudad');
+    Route::post('nuevaciudad', 'store')->name('nuevaciudad');
+    Route::get('ciudad/{ciudad}', 'show')->name('verciudad');
+    Route::get('editciudad/{ciudad}', 'edit')->name('editarciudad');
+    Route::put('actualizarciudad/{ciudad}', 'update')->name('actualizarciudad');
+    Route::delete('borrarciudad/{ciudad}', 'destroy')->name('borrarciudad');
+});
+
 require __DIR__ . '/auth.php';

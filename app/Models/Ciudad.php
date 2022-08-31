@@ -12,8 +12,11 @@ class Ciudad extends Model
 
     protected $table = "ciudad";
 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     public function obtenerPais()
     {
+
         return $this->belongsTo(Pais::class, 'PaisCapital', 'id');
     }
 }
