@@ -53,7 +53,9 @@ class CiudadController extends Controller
      */
     public function show(Ciudad $ciudad)
     {
-        //
+        $verciudad = $ciudad;
+
+        return view('Ciudades.show', compact('verciudad'));
     }
 
     /**
@@ -64,7 +66,6 @@ class CiudadController extends Controller
      */
     public function edit(Ciudad $ciudad)
     {
-        //
     }
 
     /**
