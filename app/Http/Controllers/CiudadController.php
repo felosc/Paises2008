@@ -98,6 +98,8 @@ class CiudadController extends Controller
      */
     public function destroy(Ciudad $ciudad)
     {
-        //
+        $ciudad->delete();
+
+        return redirect()->route('verciudades');
     }
 }
