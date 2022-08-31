@@ -14,7 +14,7 @@ class CiudadController extends Controller
      */
     public function index()
     {
-        $mostrarciudades = Ciudad::all();
+        $mostrarciudades = Ciudad::paginate('30');
         return view('Ciudades.index', compact('mostrarciudades'));
     }
 
@@ -26,7 +26,7 @@ class CiudadController extends Controller
     public function create()
     {
 
-        //
+        return view('Ciudades.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class CiudadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ciudad = Ciudad::create([
+            'CiudadNombre' => $request->nombreciudad,
+            'PaisCodigo' => $request->codigopais,
+            'CiudadDistrito' => $request->distritociudad,
+            'CiudadPoblacion' => $request->poblacionciudad,
+        ]);
     }
 
     /**
