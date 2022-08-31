@@ -79,13 +79,14 @@ class CiudadController extends Controller
      */
     public function update(Request $request, Ciudad $ciudad)
     {
-        $ciudad->CiudadNombre = $request->nombreciudad;
-        $ciudad->PaisCodigo = $request->codigopais;
-        $ciudad->CiudadDistrito = $request->distritociudad;
-        $ciudad->CiudadPoblacion  = $request->poblacionciudad;
 
-        $ciudad->isDirty();
-        $ciudad->save();
+        Ciudad::where('id', $ciudad->id)
+            ->update([
+                'CiudadNombre' => $request->nombreciudad,
+                'PaisCodigo' => $request->codigopais,
+                'CiudadDistrito' => $request->distritociudad,
+                'CiudadPoblacion' => $request->poblacionciudad,
+            ]);
 
         redirect()->route('verciudad', $ciudad);
     }
