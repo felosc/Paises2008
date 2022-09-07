@@ -52,9 +52,7 @@
     </div>
       <div class="flex items-center justify-center">
         {{ $mostrarpaises->links() }}
-      </div> 
-
-   
+      </div>
         
 
                     </div>
@@ -63,5 +61,8 @@
         </div>
     </x-app-layout>
 
+
+
+<!---modal-!-->
 
 

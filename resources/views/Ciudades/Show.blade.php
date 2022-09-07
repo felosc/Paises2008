@@ -27,14 +27,20 @@
                 <p>{{$verciudad->CiudadPoblacion}}</p>
             </div>
        
+            <div>
+                <button>
+                    <a href="{{route('verciudades')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">home</a>
+                </button>
+            </div>
+            
+                            <div>
+                        <button>
+                            <a href="{{route('editarciudad', $verciudad->id)}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar ciudad</a>
+                        </button>
+                    </div>
         </div>
-    </a>
         
-        <div>
-            <button>
-                <a href="{{route('verciudades')}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">home</a>
-            </button>
-        </div>
+
 
         </x-app-layout>
     
