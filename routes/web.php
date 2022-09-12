@@ -31,6 +31,7 @@ Route::controller(PaisController::class)->group(function () {
     Route::get('editpais/{pais}', 'edit')->name('editarpais');
     Route::put('actualizarpais/{pais}', 'update')->name('actualizarpais');
     Route::delete('borrarpais/{pais}', 'destroy')->name('borrarpais');
+    Route::get('/graficas', 'showGraphics')->name('vergraficas');
 });
 
 Route::controller(CiudadController::class)->group(function () {
@@ -42,5 +43,8 @@ Route::controller(CiudadController::class)->group(function () {
     Route::put('actualizarciudad/{ciudad}', 'update')->name('actualizarciudad');
     Route::delete('borrarciudad/{ciudad}', 'destroy')->name('borrarciudad');
 });
+
+
+
 
 require __DIR__ . '/auth.php';

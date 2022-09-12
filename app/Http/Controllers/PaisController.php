@@ -133,4 +133,24 @@ class PaisController extends Controller
 
         return redirect()->route('verpaises');
     }
+
+    public function showGraphics()
+    {
+        $DatosPaises = Pais::all();
+
+        $paisesnombre = [];
+        foreach ($DatosPaises as $DatoPais) {
+            $paisesnombre[] = $DatoPais->PaisNombre;
+        }
+        $paisesnombre = json_encode($paisesnombre);
+        //dd($paisesnombre);
+
+        $paisespoblacion = [];
+        foreach ($DatosPaises as $DatoPais) {
+            $paisespoblacion[] = $DatoPais->PaisPoblacion;
+        }
+        $paisespoblacion = json_encode($paisespoblacion);
+
+        return view('graficas.graficasPaises', compact('paisesnombre', 'paisespoblacion'));
+    }
 }
