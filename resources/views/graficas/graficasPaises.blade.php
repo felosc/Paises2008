@@ -1,4 +1,5 @@
-<x-app-layout>
+
+  <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 GRAFICAS DE LOS PAISES
@@ -11,11 +12,12 @@
             <h5 >BIENVENIDO</h5>
         </div>
 
-<div class="shadow-lg rounded-lg overflow-hidden">
-  <div class="py-3 px-5 bg-gray-50">Bar chart</div>
-  <canvas class="p-10" id="chartBar"></canvas>
-</div>
+      <div class="">
+        <canvas id="chartBar"></canvas>
+      </div>
 
+
+</x-app-layout> 
 <!-- Required chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -25,7 +27,7 @@
     labels: <?=$paisesnombre?>,
     datasets: [
       {
-        label: "Poblacion De Los Paises",
+        label: "Poblacion De Los Paises North America",
         backgroundColor: "hsl(252, 82.9%, 67.8%)",
         borderColor: "hsl(252, 82.9%, 67.8%)",
         data:<?=$paisespoblacion?>
@@ -43,10 +45,5 @@
     document.getElementById("chartBar"),
     configBarChart
   );
-</script>
-
-
-        </div>
+</script>  
         
-        
-</x-app-layout> 

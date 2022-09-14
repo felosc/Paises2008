@@ -136,7 +136,8 @@ class PaisController extends Controller
 
     public function showGraphics()
     {
-        $DatosPaises = Pais::all();
+        $DatosPaises = new Pais();
+        $DatosPaises = $DatosPaises->paisContinente();
 
         $paisesnombre = [];
         foreach ($DatosPaises as $DatoPais) {
