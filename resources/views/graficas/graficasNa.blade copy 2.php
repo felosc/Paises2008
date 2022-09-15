@@ -15,9 +15,9 @@
       <div class="">
         <canvas id="chartBar"></canvas>
       </div>
+    </x-app-layout> 
 
 
-</x-app-layout> 
 <!-- Required chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 

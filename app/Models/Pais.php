@@ -22,8 +22,14 @@ class Pais extends Model
 
     public function paisContinente()
     {
-        $pais = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "North America";');
+        $PaisesNorteAmerica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "North America";');
+        $PaisesAfrica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Africa";');
+        $PaisesEuropa = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Europe";');
+        $PaisesAsia = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Asia";');
+        $PaisesSurAmerica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "South America";');
+        $PaisesArtantica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Antarctica";');
+        $PaisesOceania = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Oceania";');
 
-        return $pais;
+        return compact('PaisesNorteAmerica', 'PaisesAfrica', 'PaisesEuropa', 'PaisesAsia', 'PaisesSurAmerica', 'PaisesArtantica', 'PaisesOceania');
     }
 }

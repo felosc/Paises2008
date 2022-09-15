@@ -138,17 +138,18 @@ class PaisController extends Controller
     {
         $DatosPaises = new Pais();
         $DatosPaises = $DatosPaises->paisContinente();
+        $DatosPaisesNa = $DatosPaises['PaisesNorteAmerica'];
 
         $paisesnombre = [];
-        foreach ($DatosPaises as $DatoPais) {
-            $paisesnombre[] = $DatoPais->PaisNombre;
+        foreach ($DatosPaisesNa as $DatoPaisNa) {
+            $paisesnombre[] = $DatoPaisNa->PaisNombre;
         }
         $paisesnombre = json_encode($paisesnombre);
         //dd($paisesnombre);
 
         $paisespoblacion = [];
-        foreach ($DatosPaises as $DatoPais) {
-            $paisespoblacion[] = $DatoPais->PaisPoblacion;
+        foreach ($DatosPaisesNa as $DatoPaisNa) {
+            $paisespoblacion[] = $DatoPaisNa->PaisPoblacion;
         }
         $paisespoblacion = json_encode($paisespoblacion);
 
