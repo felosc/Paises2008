@@ -20,16 +20,12 @@ class Pais extends Model
         return $this->hasMany(ciudad::class, 'id', 'PaisCapital');
     }
 
-    public function paisContinente()
+    public function paisContinente($continente)
     {
-        $PaisesNorteAmerica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "North America";');
-        $PaisesAfrica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Africa";');
-        $PaisesEuropa = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Europe";');
-        $PaisesAsia = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Asia";');
-        $PaisesSurAmerica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "South America";');
-        $PaisesArtantica = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Antarctica";');
-        $PaisesOceania = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente = "Oceania";');
+        $PaisesSegunContinente = DB::select('SELECT PaisNombre,PaisPoblacion FROM pais WHERE PaisContinente =' . "'" . $continente . "'");
 
-        return compact('PaisesNorteAmerica', 'PaisesAfrica', 'PaisesEuropa', 'PaisesAsia', 'PaisesSurAmerica', 'PaisesArtantica', 'PaisesOceania');
+
+
+        return compact('PaisesSegunContinente');
     }
 }

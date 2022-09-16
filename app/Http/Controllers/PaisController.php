@@ -135,24 +135,21 @@ class PaisController extends Controller
         return redirect()->route('verpaises');
     }
 
-    public function showGraphics($)
+    public function showGraphics()
     {
         $DatosPaises = new Pais();
-        $DatosPaises = $DatosPaises->paisContinente();
-        $DatosPaisesNa = $DatosPaises['PaisesNorteAmerica'];
-        $f = json_encode($DatosPaisesNa);
-        dd($f);
+        $DatosPaises = $DatosPaises->paisContinente('North America');
 
         $paisesnombre = [];
-        foreach ($DatosPaisesNa as $DatoPaisNa) {
-            $paisesnombre[] = $DatoPaisNa->PaisNombre;
+        foreach ($DatosPaises as $DatoPais) {
+            $paisesnombre[] = $DatoPais->PaisNombre;
         }
         $paisesnombre = json_encode($paisesnombre);
         var_dump($paisesnombre);
 
         $paisespoblacion = [];
-        foreach ($DatosPaisesNa as $DatoPaisNa) {
-            $paisespoblacion[] = $DatoPaisNa->PaisPoblacion;
+        foreach ($DatosPaises as $DatoPais) {
+            $paisespoblacion[] = $DatoPais->PaisPoblacion;
         }
         $paisespoblacion = json_encode($paisespoblacion);
 
