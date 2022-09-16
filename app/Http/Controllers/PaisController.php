@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pais;
+use Illuminate\Database\Eloquent\JsonEncodingException;
 use Illuminate\Http\Request;
 
 class PaisController extends Controller
@@ -134,18 +135,20 @@ class PaisController extends Controller
         return redirect()->route('verpaises');
     }
 
-    public function showGraphics()
+    public function showGraphics($)
     {
         $DatosPaises = new Pais();
         $DatosPaises = $DatosPaises->paisContinente();
         $DatosPaisesNa = $DatosPaises['PaisesNorteAmerica'];
+        $f = json_encode($DatosPaisesNa);
+        dd($f);
 
         $paisesnombre = [];
         foreach ($DatosPaisesNa as $DatoPaisNa) {
             $paisesnombre[] = $DatoPaisNa->PaisNombre;
         }
         $paisesnombre = json_encode($paisesnombre);
-        //dd($paisesnombre);
+        var_dump($paisesnombre);
 
         $paisespoblacion = [];
         foreach ($DatosPaisesNa as $DatoPaisNa) {
@@ -153,6 +156,7 @@ class PaisController extends Controller
         }
         $paisespoblacion = json_encode($paisespoblacion);
 
-        return view('graficas.graficasPaises', compact('paisesnombre', 'paisespoblacion'));
+
+        return view('graficas.graficasNa', compact('paisesnombre', 'paisespoblacion'));
     }
 }

@@ -23,6 +23,20 @@
 
 <!-- Chart bar -->
 <script>
+  $(document).ready(function(){
+    $.ajax({
+      type:"POST",
+      url:'PaisController.php'
+      data:{'North America','graficasNa'},
+      success:function(response){
+          console.log(reposne);
+      } error: function () {
+        alertError();
+        return false;
+    }
+    })
+  })
+
   const dataBarChart = {
     labels: <?=$paisesnombre?>,
     datasets: [
