@@ -147,17 +147,17 @@ class PaisController extends Controller
         foreach ($prueba["PaisesSegunContinente"] as $DatoPais) {
             $paisesnombre[] = $DatoPais->PaisNombre;
         }
-        $paisesnombre = json_encode($paisesnombre);
+        //$paisesnombre = json_encode($paisesnombre);
 
         //poblacion de los paises --
         $paisespoblacion = [];
         foreach ($prueba["PaisesSegunContinente"] as $DatoPais) {
             $paisespoblacion[] = $DatoPais->PaisPoblacion;
         }
-        $paisespoblacion = json_encode($paisespoblacion);
+        //$paisespoblacion = json_encode($paisespoblacion);
 
 
-        return $paisesnombre . $paisespoblacion;
+        return compact('paisesnombre', 'paisespoblacion');
     }
 
     public function showGraphics()

@@ -15,6 +15,17 @@
       <div class="">
         <canvas id="chartBar"></canvas>
       </div>
+
+
+        <div class="bg-yellow-500 col-span-2"> 
+            <label for="" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">GRAFICA DE PAISES</label>                   
+            <h5 >BIENVENIDO</h5>
+        </div>
+
+      <div class="">
+        <canvas id="chartBar1"></canvas>
+      </div>      
+
     </x-app-layout> 
 
 
@@ -23,12 +34,17 @@
 
 <!-- Chart bar -->
 <script>
+  let paisesNombre 
+  let paisesPoblacion 
 
   $(document).ready(function(){
     $.ajax({
       type: "GET",
       url: "lel/Asia",
       success: function (response) {
+        paisesNombre = response.paisesnombre
+        paisesPoblacion = response.paisespoblacion
+        PruebaGrafica(paisesNombre,paisesPoblacion)
         console.log(response);
       }
     });
@@ -56,5 +72,32 @@
     document.getElementById("chartBar"),
     configBarChart
   );
+
+  function PruebaGrafica(nombreP,poblacionP) {
+
+      const dataBarChart = {
+    labels: nombreP,
+    datasets: [
+      {
+        label: "Poblacion De Los Paises North America",
+        backgroundColor: "hsl(252, 82.9%, 67.8%)",
+        borderColor: "hsl(252, 82.9%, 67.8%)",
+        data:poblacionP
+      },
+    ],
+  };
+
+  const configBarChart = {
+    type: "bar",
+    data: dataBarChart,
+    options: {},
+  };
+
+  var chartBar = new Chart(
+    document.getElementById("chartBar1"),
+    configBarChart
+  );
+
+  }
 </script>  
         
