@@ -6,6 +6,8 @@ use App\Models\Pais;
 use Illuminate\Database\Eloquent\JsonEncodingException;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\returnSelf;
+
 class PaisController extends Controller
 {
     /**
@@ -135,24 +137,48 @@ class PaisController extends Controller
         return redirect()->route('verpaises');
     }
 
-    public function showGraphics()
+    public function cargadevistas($dato)
     {
-        $DatosPaises = new Pais();
-        $DatosPaises = $DatosPaises->paisContinente('North America');
+
+        $prueba = new Pais();
+        $prueba = $prueba->paisContinente($dato);
 
         $paisesnombre = [];
-        foreach ($DatosPaises as $DatoPais) {
+        foreach ($prueba["PaisesSegunContinente"] as $DatoPais) {
             $paisesnombre[] = $DatoPais->PaisNombre;
         }
         $paisesnombre = json_encode($paisesnombre);
-        var_dump($paisesnombre);
 
+        //poblacion de los paises --
         $paisespoblacion = [];
-        foreach ($DatosPaises as $DatoPais) {
+        foreach ($prueba["PaisesSegunContinente"] as $DatoPais) {
             $paisespoblacion[] = $DatoPais->PaisPoblacion;
         }
         $paisespoblacion = json_encode($paisespoblacion);
 
+
+        return $paisesnombre . $paisespoblacion;
+    }
+
+    public function showGraphics()
+    {
+
+        $DatosPaises = new Pais();
+        $DatosPaises = $DatosPaises->paisContinente('North America');
+        //dd($DatosPaises);
+        //nombre de los paisese--
+        $paisesnombre = [];
+        foreach ($DatosPaises["PaisesSegunContinente"] as $DatoPais) {
+            $paisesnombre[] = $DatoPais->PaisNombre;
+        }
+        $paisesnombre = json_encode($paisesnombre);
+
+        //poblacion de los paises --
+        $paisespoblacion = [];
+        foreach ($DatosPaises["PaisesSegunContinente"] as $DatoPais) {
+            $paisespoblacion[] = $DatoPais->PaisPoblacion;
+        }
+        $paisespoblacion = json_encode($paisespoblacion);
 
         return view('graficas.graficasNa', compact('paisesnombre', 'paisespoblacion'));
     }

@@ -24,6 +24,16 @@
 <!-- Chart bar -->
 <script>
 
+  $(document).ready(function(){
+    $.ajax({
+      type: "GET",
+      url: "lel/Asia",
+      success: function (response) {
+        console.log(response);
+      }
+    });
+  })
+  
   const dataBarChart = {
     labels: <?=$paisesnombre?>,
     datasets: [
