@@ -1,21 +1,9 @@
 
-  <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                GRAFICAS DE LOS PAISES
-            </h2>
-        </x-slot>
-
-
-        <div class="bg-yellow-500 col-span-2"> 
-            <label for="" class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">GRAFICA DE PAISES</label>                   
-            <h5 >BIENVENIDO</h5>
-        </div>
 
       <div class="">
-        <canvas id="chartBar"></canvas>
+        <canvas id="chartBarSouthAmerica"></canvas>
       </div>
-    </x-app-layout> 
+
 
 
 <!-- Required chart.js -->
@@ -23,14 +11,33 @@
 
 <!-- Chart bar -->
 <script>
-  const dataBarChart = {
-    labels: <?=$paisesnombre?>,
+  let paisesNombreSA 
+  let paisesPoblacionSA 
+
+  $(document).ready(function(){
+    $.ajax({
+      type: "GET",
+      url: "lel/South America",
+      success: function (response) {
+        paisesNombreSA = response.paisesnombre
+        paisesPoblacionSA = response.paisespoblacion
+        PruebaGraficaSA(paisesNombreSA,paisesPoblacionSA)
+        console.log(response);
+      }
+    });
+  })
+
+
+  function PruebaGraficaSA(nombreP,poblacionP) {
+
+      const dataBarChart = {
+    labels: nombreP,
     datasets: [
       {
-        label: "Poblacion De Los Paises North America",
+        label: "Poblacion De Los Paises South America",
         backgroundColor: "hsl(252, 82.9%, 67.8%)",
         borderColor: "hsl(252, 82.9%, 67.8%)",
-        data:<?=$paisespoblacion?>
+        data:poblacionP
       },
     ],
   };
@@ -42,8 +49,10 @@
   };
 
   var chartBar = new Chart(
-    document.getElementById("chartBar"),
+    document.getElementById("chartBarSouthAmerica"),
     configBarChart
   );
+
+}
 </script>  
         

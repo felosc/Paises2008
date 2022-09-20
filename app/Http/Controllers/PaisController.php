@@ -160,26 +160,8 @@ class PaisController extends Controller
         return compact('paisesnombre', 'paisespoblacion');
     }
 
-    public function showGraphics()
+    public function indexGraphics()
     {
-
-        $DatosPaises = new Pais();
-        $DatosPaises = $DatosPaises->paisContinente('North America');
-        //dd($DatosPaises);
-        //nombre de los paisese--
-        $paisesnombre = [];
-        foreach ($DatosPaises["PaisesSegunContinente"] as $DatoPais) {
-            $paisesnombre[] = $DatoPais->PaisNombre;
-        }
-        $paisesnombre = json_encode($paisesnombre);
-
-        //poblacion de los paises --
-        $paisespoblacion = [];
-        foreach ($DatosPaises["PaisesSegunContinente"] as $DatoPais) {
-            $paisespoblacion[] = $DatoPais->PaisPoblacion;
-        }
-        $paisespoblacion = json_encode($paisespoblacion);
-
-        return view('graficas.graficasNa', compact('paisesnombre', 'paisespoblacion'));
+        return view('graficas.index');
     }
 }
