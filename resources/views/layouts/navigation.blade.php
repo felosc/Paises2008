@@ -25,7 +25,11 @@
 
                     <x-nav-link :href="route('vergrafica')" :active="request()->routeIs('graficas.showGraphics')">
                         {{ __('Poblacion Por Continente') }}
-                    </x-nav-link>                    
+                    </x-nav-link> 
+                    
+                    <x-nav-link :href="route('verusuarios')" :active="request()->routeIs('usuarios.index')">
+                        {{ __('Usuarios') }}
+                    </x-nav-link>                      
                    
                 </div>
             </div>

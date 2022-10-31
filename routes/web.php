@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\PaisController;
+use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::controller(User::class)->group(function () {
+    Route::get('users', 'index')->name('verusuarios');
+    Route::get('crearusuarios', 'create')->name('crearusuario');
+    Route::post('nuevousuario', 'store')->name('nuevousuario');
+    Route::get('usuario/{usuario}', 'show')->name('verusuario');
+    Route::get('editusuario/{usuario}', 'edit')->name('editarusuario');
+    Route::put('actualizarusuario/{usuario}', 'update')->name('actualizarusuario');
+    Route::delete('borrarusuario/{usuario}', 'destroy')->name('borrarusuario');
+});
 
 Route::controller(PaisController::class)->group(function () {
     Route::get('paises', 'index')->name('verpaises');
