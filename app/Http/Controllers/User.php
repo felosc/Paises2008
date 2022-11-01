@@ -45,9 +45,10 @@ class User extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ModelsUser $usuario)
     {
-        //
+        $verusuario = $usuario;
+        return view('users.show', compact('verusuario'));
     }
 
     /**

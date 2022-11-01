@@ -21,20 +21,21 @@
                 </tr>
             </thead>
             <tbody>    
-              @foreach ($mostrarusuarios as $usuario )                    
+              @foreach ($mostrarusuarios as $usuario )
+               
               <tr>
                   <td class="bg-cyan-200 border border-slate-700 ... text-center">{{$usuario->name}}</td>
                   <td class="bg-red-200 border border-slate-700 ... text-center">{{$usuario->email}}</td>
                   <td class="bg-yellow-200 border border-slate-700 ... text-center">{{$usuario->pais}}</td>               
                     <td class="bg-indigo-200 border border-slate-700 ... text-center">                   
-                          <a href="{{route('verciudad', $usuario->id)}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">ver</a>
+                          <a href="{{route('verusuario', $usuario->id)}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">ver</a>
                   </td>
                           <td class="bg-indigo-200 border border-slate-700 ... text-center">
                             
-                            <a href="{{route('editarciudad', $usuario->id)}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
+                            <a href="{{route('editarusuario', $usuario->id)}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-0.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Editar</a>
                           </td>
                           <td class="bg-indigo-200 border border-slate-700 ... text-center">
-                            <form action="{{ route('borrarciudad',$usuario->id) }}" method="POST">
+                            <form action="{{ route('borrarusuario',$usuario->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <x-button>Eliminar</x-button>
