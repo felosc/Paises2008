@@ -1,5 +1,5 @@
 
-    
+        <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{  $verpais->PaisNombre }}
@@ -28,7 +28,6 @@
             <p>Sin Capital</p>
             @else
             <p>{{ $verpais->ciudad[0]->CiudadNombre }}</p>
-            
             @endif                
             
             </div> 

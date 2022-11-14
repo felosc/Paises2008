@@ -88,7 +88,7 @@ class CiudadController extends Controller
                 'CiudadPoblacion' => $request->poblacionciudad,
             ]);
 
-        redirect()->route('verciudad', $ciudad);
+        return redirect()->route('verciudad', $ciudad);
     }
 
     /**

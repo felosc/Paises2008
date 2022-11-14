@@ -25,7 +25,6 @@ class User extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -57,9 +56,10 @@ class User extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ModelsUser $usuario)
     {
-        //
+        $editUsuario = $usuario;
+        return view('users.edit', compact('editUsuario'));
     }
 
     /**
@@ -69,9 +69,16 @@ class User extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ModelsUser $usuario)
     {
-        //
+
+        ModelsUser::where('id', $usuario->id)
+            ->update([
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+
+        return redirect()->route('verusuario', $usuario);
     }
 
     /**
@@ -80,8 +87,10 @@ class User extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ModelsUser $usuario)
     {
-        //
+        $usuario->delete();
+
+        return redirect()->route('verusuarios');
     }
 }
