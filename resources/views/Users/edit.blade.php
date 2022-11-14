@@ -1,30 +1,36 @@
-    <x-app-layout>
-        <x-slot name="header">
+<x-app-layout>
+            <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Actualizar datos de  {{  $editUsuario->name }}
             </h2>
         </x-slot>
+    <x-auth-card>
+                <x-slot name="logo">
+            <a href="/">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
+        </x-slot>
+
 
 <form action="{{ route('actualizarusuario',$editUsuario) }}" method="POST">
             @csrf
             @method('PUT')
-        <div>
-            <label for="">Nombre de Usuario</label>
-            <input name="name" value="{{ $editUsuario->name }}" type="text">
+        <div class="mt-4">
+            <x-label for="email" :value="__('Nombre  De Usuario')"/>
+            <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="($editUsuario->name)" required autofocus />
         </div>        
-        <div>
-            <label for="">  Correo de el Usuario </label>
-            <input name="email" value="{{ $editUsuario->email }}" type="text">
+        <div class="mt-4">
+            <x-label for="email" :value="__('Correo  Del Usuario')"/>
+            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="($editUsuario->email)" required autofocus />
         </div>
               
-        <div>
-            <div>
-                <button type="submit" 
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                ACTUALIZAR
-            </button>
-        </div>
-    </div>
-</form>
+        <div class="mt-4 text-center"> 
 
-</x-app-layout>
+                <x-button class="ml-3">
+                    {{ __('Actualizar') }}
+                </x-button>                
+        </div>
+</form>
+</x-auth-card>
+ </x-app-layout>
+ 
